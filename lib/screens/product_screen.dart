@@ -35,6 +35,7 @@ class _ProductScreenState extends State<ProductScreen> {
         ),
         centerTitle: true,
         iconTheme: IconThemeData(color: Colors.black),
+        brightness: Brightness.light,
       ),
       body: Container(
         child: SingleChildScrollView(

@@ -1,3 +1,6 @@
+import 'package:edumart/screens/orders_screen.dart';
+import 'package:edumart/screens/profile_screen.dart';
+import 'package:edumart/screens/support_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -7,11 +10,40 @@ import '../screens/team_screen.dart';
 
 class MyDrawer extends StatelessWidget {
   final List<Map<String, dynamic>> _items = [
-    {'icon': Icons.store, 'title': 'Store', 'screen': HomeScreen()},
-    {'icon': Icons.info, 'title': 'About', 'screen': AboutScreen()},
-    {'icon': Icons.people, 'title': 'Team', 'screen': TeamScreen()},
-    {'icon': Icons.settings, 'title': 'Settings'},
-    {'icon': Icons.exit_to_app, 'title': 'Logout'},
+    {
+      'icon': Icons.store,
+      'title': 'Store',
+      'screen': HomeScreen(),
+    },
+    // {
+    //   'icon': Icons.people,
+    //   'title': 'Team',
+    //   'screen': TeamScreen(),
+    // },
+    {
+      'icon': Icons.shopping_basket,
+      'title': 'My Orders',
+      'screen': OrdersScreen(),
+    },
+    {
+      'icon': Icons.support_agent,
+      'title': 'Support',
+      'screen': SupportScreen(),
+    },
+    {
+      'icon': Icons.info,
+      'title': 'About',
+      'screen': AboutScreen(),
+    },
+    {
+      'icon': Icons.account_circle,
+      'title': 'Profile',
+      'screen': ProfileScreen(),
+    },
+    {
+      'icon': Icons.exit_to_app,
+      'title': 'Logout',
+    },
   ];
 
   @override
@@ -45,14 +77,14 @@ class MyDrawer extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          'John Doe',
+                          'Vansh Goel',
                           style: Theme.of(context)
                               .textTheme
                               .headline6
                               .copyWith(color: Colors.white),
                         ),
                         Text(
-                          'john.doe@gmail.com',
+                          'vanshg395@gmail.com',
                           style: Theme.of(context)
                               .textTheme
                               .subtitle1

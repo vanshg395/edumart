@@ -1,5 +1,7 @@
+import 'package:edumart/screens/category_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/services.dart';
 import 'package:badges/badges.dart';
 
 import './product_screen.dart';
@@ -24,6 +26,9 @@ class HomeScreen extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Badge(
+              showBadge: Provider.of<Cart>(context).cartItems.length == 0
+                  ? false
+                  : true,
               badgeContent: Provider.of<Cart>(context).cartItems.length == 0
                   ? null
                   : Text(
@@ -39,6 +44,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
         iconTheme: IconThemeData(color: Colors.black),
+        brightness: Brightness.light,
       ),
       drawer: MyDrawer(),
       endDrawer: CartDrawer(),
@@ -326,7 +332,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 30,
               ),
               Container(
                 padding: EdgeInsets.only(left: 16),
@@ -350,133 +356,182 @@ class HomeScreen extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Container(
-                      height: double.infinity,
-                      width: 100,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 5,
-                            color: Color(0xFFB9B9B9).withOpacity(0.25),
-                          )
-                        ],
-                        color: Colors.white,
+                    GestureDetector(
+                      child: Container(
+                        height: double.infinity,
+                        width: 100,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 5,
+                              color: Color(0xFFB9B9B9).withOpacity(0.25),
+                            )
+                          ],
+                          color: Colors.white,
+                        ),
+                        child: Text('Art & Craft'),
                       ),
-                      child: Text('Art & Craft'),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Container(
-                      height: double.infinity,
-                      width: 100,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 5,
-                            color: Color(0xFFB9B9B9).withOpacity(0.25),
-                          )
-                        ],
-                        color: Colors.white,
-                      ),
-                      child: Text(
-                        'Pens\n& Pencils',
-                        textAlign: TextAlign.center,
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (ctx) => CategoryScreen('Art & Craft'),
+                        ),
                       ),
                     ),
                     SizedBox(
                       width: 10,
                     ),
-                    Container(
-                      height: double.infinity,
-                      width: 100,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 5,
-                            color: Color(0xFFB9B9B9).withOpacity(0.25),
-                          )
-                        ],
-                        color: Colors.white,
+                    GestureDetector(
+                      child: Container(
+                        height: double.infinity,
+                        width: 100,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 5,
+                              color: Color(0xFFB9B9B9).withOpacity(0.25),
+                            )
+                          ],
+                          color: Colors.white,
+                        ),
+                        child: Text(
+                          'Pens\n& Pencils',
+                          textAlign: TextAlign.center,
+                        ),
                       ),
-                      child: Text('Notebooks'),
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (ctx) => CategoryScreen('Pens & Pencils'),
+                        ),
+                      ),
                     ),
                     SizedBox(
                       width: 10,
                     ),
-                    Container(
-                      height: double.infinity,
-                      width: 100,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 5,
-                            color: Color(0xFFB9B9B9).withOpacity(0.25),
-                          )
-                        ],
-                        color: Colors.white,
+                    GestureDetector(
+                      child: Container(
+                        height: double.infinity,
+                        width: 100,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 5,
+                              color: Color(0xFFB9B9B9).withOpacity(0.25),
+                            )
+                          ],
+                          color: Colors.white,
+                        ),
+                        child: Text('Notebooks'),
                       ),
-                      child: Text('Textbooks'),
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (ctx) => CategoryScreen('Notebooks'),
+                        ),
+                      ),
                     ),
                     SizedBox(
                       width: 10,
                     ),
-                    Container(
-                      height: double.infinity,
-                      width: 100,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 5,
-                            color: Color(0xFFB9B9B9).withOpacity(0.25),
-                          )
-                        ],
-                        color: Colors.white,
+                    GestureDetector(
+                      child: Container(
+                        height: double.infinity,
+                        width: 100,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 5,
+                              color: Color(0xFFB9B9B9).withOpacity(0.25),
+                            )
+                          ],
+                          color: Colors.white,
+                        ),
+                        child: Text('Textbooks'),
                       ),
-                      child: Text('Novels'),
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (ctx) => CategoryScreen('Textbooks'),
+                        ),
+                      ),
                     ),
                     SizedBox(
                       width: 10,
                     ),
-                    Container(
-                      height: double.infinity,
-                      width: 100,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 5,
-                            color: Color(0xFFB9B9B9).withOpacity(0.25),
-                          )
-                        ],
-                        color: Colors.white,
+                    GestureDetector(
+                      child: Container(
+                        height: double.infinity,
+                        width: 100,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 5,
+                              color: Color(0xFFB9B9B9).withOpacity(0.25),
+                            )
+                          ],
+                          color: Colors.white,
+                        ),
+                        child: Text('Novels'),
                       ),
-                      child: Text('Uniforms'),
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (ctx) => CategoryScreen('Novels'),
+                        ),
+                      ),
                     ),
                     SizedBox(
                       width: 10,
                     ),
-                    Container(
-                      height: double.infinity,
-                      width: 100,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 5,
-                            color: Color(0xFFB9B9B9).withOpacity(0.25),
-                          )
-                        ],
-                        color: Colors.white,
+                    GestureDetector(
+                      child: Container(
+                        height: double.infinity,
+                        width: 100,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 5,
+                              color: Color(0xFFB9B9B9).withOpacity(0.25),
+                            )
+                          ],
+                          color: Colors.white,
+                        ),
+                        child: Text('Uniforms'),
                       ),
-                      child: Text(
-                        'Desk Accessories',
-                        textAlign: TextAlign.center,
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (ctx) => CategoryScreen('Uniforms'),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    GestureDetector(
+                      child: Container(
+                        height: double.infinity,
+                        width: 100,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 5,
+                              color: Color(0xFFB9B9B9).withOpacity(0.25),
+                            )
+                          ],
+                          color: Colors.white,
+                        ),
+                        child: Text(
+                          'Desk Accessories',
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (ctx) => CategoryScreen('Desk Accessories'),
+                        ),
                       ),
                     ),
                     SizedBox(

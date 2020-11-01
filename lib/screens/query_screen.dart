@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/mydrawer.dart';
 
-class AboutScreen extends StatelessWidget {
+class QueryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +16,6 @@ class AboutScreen extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.black),
         brightness: Brightness.light,
       ),
-      drawer: MyDrawer(),
       body: Container(
         child: SingleChildScrollView(
           child: Column(
@@ -44,7 +43,7 @@ class AboutScreen extends StatelessWidget {
                         color: Colors.white,
                       ),
                       child: Text(
-                        'ABOUT\nEDUMART',
+                        'NEW QUERY',
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.headline6.copyWith(
                               fontWeight: FontWeight.w300,
@@ -59,28 +58,53 @@ class AboutScreen extends StatelessWidget {
                 height: 30,
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 16),
+                margin: EdgeInsets.symmetric(horizontal: 24),
                 child: Text(
-                  'It all started when a group of eight undergrads from VIT University were motivated enough by their Lean-Start-Up Management professor to pursue their dream and guided them throughout the whole process and helped them in their ups and downs.',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.subtitle1.copyWith(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 20,
-                      ),
+                  'Ask Us Here!',
+                  style: TextStyle(
+                    fontSize: 36,
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 20,
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  'Today, EduMart is one of the best viable options to buy any kind of stationary online, both for personal or professional use. EduMart is fortunate enough to cater to the needs of our many customers. EduMart is capable of accepting small scale as well as large scale orders.',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.subtitle1.copyWith(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 20,
-                      ),
+                margin: EdgeInsets.symmetric(horizontal: 24),
+                child: TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Title',
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 24),
+                child: TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Message',
+                  ),
+                  maxLines: 5,
+                ),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Center(
+                child: GestureDetector(
+                  child: Container(
+                    color: Colors.black,
+                    alignment: Alignment.center,
+                    height: 60,
+                    width: 300,
+                    child: Text(
+                      'Submit',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
                 ),
               ),
               SizedBox(
